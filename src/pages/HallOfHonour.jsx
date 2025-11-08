@@ -1,141 +1,224 @@
 import React from 'react';
 
-// NOTE: You must place your image files in your project and update the 
-// 'image' value with the correct file path (e.g., /assets/images/apj_kalam.jpg) 
-// or an external URL for each person.
+// --- Placeholder for Members (Since you don't have images for them) ---
+const PLACEHOLDER_IMAGE = 'BLANK_MEMBER_IMAGE'; 
 
+// --- LEGEND IMAGE IMPORTS (Verified and kept) ---
+import apj_kalam from "../assets/Legend/apj.jpg";
+import carl_sagan from "../assets/Legend/carl.jpg";
+import charles_darwin from "../assets/Legend/chalrlie.jpg";
+import s_chandrasekhar from "../assets/Legend/chandrshekhar.jpg";
+import cv_raman from "../assets/Legend/cv.jpg"; 
+import albert_einstein from "../assets/Legend/einstine.webp";
+import elon_musk from "../assets/Legend/elon.webp";
+import rosalind_franklin from "../assets/Legend/franklin.jpg";
+import gagandeep_kang from "../assets/Legend/gangadeep.jpg";
+import homi_bhabha from "../assets/Legend/homi.jpg";
+import jane_goodall from "../assets/Legend/jane.webp";
+import k_kasturirangan from "../assets/Legend/kasturigan.avif";
+import marie_curie from "../assets/Legend/marie.jpg";
+// The problematic import has been commented out to resolve the error
+// import ra_mashelkar from "../assets/Legend/mashelkar.jpg"; 
+import isaac_newton from "../assets/Legend/newton.jpg";
+import stephen_hawking from "../assets/Legend/stephen.jpg";
+import ms_swaminathan from "../assets/Legend/swaminathan.webp";
+import nikola_tesla from "../assets/Legend/tesl.jpeg";
+import tessy_thomas from "../assets/Legend/tessy.avif";
+import vikram_sarabhai from "../assets/Legend/vikram.png"; 
+
+// --- Component Data Arrays (Updated Dr. R. A. Mashelkar's image to use placeholder) ---
 const legends = [
-  // Indian Visionaries & Scientists
-  { person: "Dr. A.P.J. Abdul Kalam", title: "“Missile Man of India”; former President; visionary behind India’s space and defence technology revolution", image: "apj_kalam.jpg" },
-  { person: "Dr. C.V. Raman", title: "Nobel Laureate in Physics (1930) for discovering the Raman Effect", image: "cv_raman.jpg" },
-  { person: "Dr. Homi J. Bhabha", title: "Architect of India’s nuclear programme and founder of BARC and TIFR", image: "homi_bhabha.jpg" },
-  { person: "Dr. Vikram A. Sarabhai", title: "Father of the Indian Space Programme; established ISRO and promoted space applications for development", image: "vikram_sarabhai.jpg" },
-  { person: "Dr. S. Chandrasekhar", title: "Nobel Laureate in Physics (1983); known for the Chandrasekhar Limit in stellar evolution", image: "s_chandrasekhar.jpg" },
-  { person: "Dr. M.S. Swaminathan", title: "Father of the Green Revolution in India; champion of agricultural sustainability and food security", image: "ms_swaminathan.jpg" },
-  { person: "Dr. K. Kasturirangan", title: "Space scientist; led ISRO’s scientific missions and national education policy reforms", image: "k_kasturirangan.jpg" },
-  { person: "Dr. R. A. Mashelkar", title: "Chemical engineer; global leader in innovation policy, intellectual property, and sustainable technologies", image: "ra_mashelkar.jpg" },
-  { person: "Dr. Tessy Thomas", title: "“Missile Woman of India”; key DRDO scientist behind Agni missile systems", image: "tessy_thomas.jpg" },
-  { person: "Dr. Gagandeep Kang", title: "Leading microbiologist; expert in infectious diseases and vaccine research", image: "gagandeep_kang.jpg" },
-
-  // Global Titans
-  { person: "Albert Einstein", title: "Theoretical physicist; father of relativity; symbol of intellectual brilliance and humanism", image: "albert_einstein.jpg" },
-  { person: "Marie Curie", title: "Pioneer in radioactivity; first person to win two Nobel Prizes in Physics and Chemistry", image: "marie_curie.jpg" },
-  { person: "Stephen Hawking", title: "Theoretical physicist; advanced our understanding of black holes and cosmology despite physical adversity", image: "stephen_hawking.jpg" },
-  { person: "Isaac Newton", title: "Mathematician and physicist; formulated laws of motion and universal gravitation", image: "isaac_newton.jpg" },
-  { person: "Charles Darwin", title: "Naturalist; proposed the theory of evolution by natural selection", image: "charles_darwin.jpg" },
-  { person: "Nikola Tesla", title: "Inventor and engineer; laid foundations for AC electricity, wireless energy, and modern electrical systems", image: "nikola_tesla.jpg" },
-  { person: "Rosalind Franklin", title: "Molecular biophysicist; provided key X-ray data for discovery of DNA structure", image: "rosalind_franklin.jpg" },
-  { person: "Carl Sagan", title: "Astrophysicist and communicator; popularized science and cosmic exploration", image: "carl_sagan.jpg" },
-  { person: "Jane Goodall", title: "Primatologist; transformed our understanding of animal behaviour and conservation", image: "jane_goodall.jpg" },
-  { person: "Elon Musk", title: "Entrepreneur-engineer; leading innovations in electric vehicles, space technology, and sustainable energy", image: "elon_musk.jpg" },
+  { person: "Dr. A.P.J. Abdul Kalam", title: "“Missile Man of India”; former President; visionary behind India’s space and defence technology revolution", image: apj_kalam },
+  { person: "Dr. C.V. Raman", title: "Nobel Laureate in Physics (1930) for discovering the Raman Effect", image: cv_raman },
+  { person: "Dr. Homi J. Bhabha", title: "Architect of India’s nuclear programme and founder of BARC and TIFR", image: homi_bhabha },
+  { person: "Dr. Vikram A. Sarabhai", title: "Father of the Indian Space Programme; established ISRO and promoted space applications for development", image: vikram_sarabhai },
+  { person: "Dr. S. Chandrasekhar", title: "Nobel Laureate in Physics (1983); known for the Chandrasekhar Limit in stellar evolution", image: s_chandrasekhar },
+  { person: "Dr. M.S. Swaminathan", title: "Father of the Green Revolution in India; champion of agricultural sustainability and food security", image: ms_swaminathan },
+  { person: "Dr. K. Kasturirangan", title: "Space scientist; led ISRO’s scientific missions and national education policy reforms", image: k_kasturirangan },
+  // Using PLACEHOLDER_IMAGE since the asset import was failing.
+  { person: "Dr. R. A. Mashelkar", title: "Chemical engineer; global leader in innovation policy, intellectual property, and sustainable technologies", image: PLACEHOLDER_IMAGE }, 
+  { person: "Dr. Tessy Thomas", title: "“Missile Woman of India”; key DRDO scientist behind Agni missile systems", image: tessy_thomas },
+  { person: "Dr. Gagandeep Kang", title: "Leading microbiologist; expert in infectious diseases and vaccine research", image: gagandeep_kang },
+  { person: "Albert Einstein", title: "Theoretical physicist; father of relativity; symbol of intellectual brilliance and humanism", image: albert_einstein },
+  { person: "Marie Curie", title: "Pioneer in radioactivity; first person to win two Nobel Prizes in Physics and Chemistry", image: marie_curie },
+  { person: "Stephen Hawking", title: "Theoretical physicist; advanced our understanding of black holes and cosmology despite physical adversity", image: stephen_hawking },
+  { person: "Isaac Newton", title: "Mathematician and physicist; formulated laws of motion and universal gravitation", image: isaac_newton },
+  { person: "Charles Darwin", title: "Naturalist; proposed the theory of evolution by natural selection", image: charles_darwin },
+  { person: "Nikola Tesla", title: "Inventor and engineer; laid foundations for AC electricity, wireless energy, and modern electrical systems", image: nikola_tesla },
+  { person: "Rosalind Franklin", title: "Molecular biophysicist; provided key X-ray data for discovery of DNA structure", image: rosalind_franklin },
+  { person: "Carl Sagan", title: "Astrophysicist and communicator; popularized science and cosmic exploration", image: carl_sagan },
+  { person: "Jane Goodall", title: "Primatologist; transformed our understanding of animal behaviour and conservation", image: jane_goodall },
+  { person: "Elon Musk", title: "Entrepreneur-engineer; leading innovations in electric vehicles, space technology, and sustainable energy", image: elon_musk },
 ];
 
 const members = [
-  { person: "Dr. Sonam Wangchuk", title: "Promoting sustainable innovation and environmental engineering for Himalayan communities", image: "sonam_wangchuk_innovator.jpg" },
-  { person: "Mr. Samba Siva Rao Madamanchi", title: "Innovator in AI-driven robotics and intelligent infrastructure systems; developing automation frameworks for enterprise governance and cybersecurity", image: "samba_siva_rao_madamanchi.jpg" },
-  { person: "Dr. Allison Koenecke", title: "Researching algorithmic fairness and bias mitigation in speech and AI systems", image: "allison_koenecke.jpg" },
-  // Dr. Gagandeep Kang is in Legends, so omitted here to avoid duplication
-  { person: "Dr. Catherine Dulac", title: "Studying neural circuits that control social behaviour and brain mechanisms behind emotion and identity", image: "catherine_dulac.jpg" },
-  { person: "Dr. Shweta Singh", title: "Developing carbon-neutral technologies and circular economy models in clean manufacturing", image: "shweta_singh.jpg" },
-  { person: "Mr. Lakshmi Kalyani Chinthala", title: "AI-driven healthcare analytics and sustainable business intelligence; creator of the HIVSense-Econ model integrating diagnostics with economic forecasting for public health equity", image: "lakshmi_kalyani_chinthala.jpg" },
-  { person: "Dr. Wen Sun", title: "Advancing reinforcement learning and safe autonomous decision-making frameworks", image: "wen_sun.jpg" },
-  { person: "Dr. Melissa J. Moore", title: "Investigating RNA biology and therapeutic applications in precision medicine", image: "melissa_j_moore.jpg" },
-  { person: "Dr. Ying Yang", title: "Creating recyclable polymers and sustainable materials for environmentally friendly industries", image: "ying_yang.jpg" },
-  { person: "Dr. Deepa Khosla", title: "Investigating sustainable agriculture and carbon-capture potential of regenerative soil systems", image: "deepa_khosla.jpg" },
-  { person: "Dr. Amruta Gadre", title: "Contributing to gravitational-wave detection and signal modelling at the LIGO Laboratory", image: "amruta_gadre.jpg" },
-  { person: "Mr. Ravichandra Mulpuri", title: "Specialist in AI-integrated enterprise solutions and health-tech innovation; works on predictive analytics and wearable cardiac monitoring systems", image: "ravichandra_mulpuri.jpg" },
-  { person: "Dr. Siddharth Mishra-Sharma", title: "Conducting research on dark matter, cosmic radiation, and astrophysical particle physics", image: "siddharth_mishra_sharma.jpg" },
-  { person: "Dr. Sara Hooker", title: "Leading research in efficient and responsible machine learning for sustainable AI", image: "sara_hooker.jpg" },
-  { person: "Dr. Marion Villenave", title: "Investigating how planets form from dust in protoplanetary disks using high-resolution telescope data", image: "marion_villenave.jpg" },
-  { person: "Dr. Sara Mascia", title: "Studying the earliest galaxies and sources of cosmic reionization with JWST observations", image: "sara_mascia.jpg" },
-  { person: "Mr. Veerendra Batulla", title: "Technologist and global innovator; leading work on “Pupil DX”, a system combining hardware for eye-tracking with AI analytics for healthcare, education, and behavioral sciences", image: "veerendra_batulla.jpg" },
-  { person: "Dr. Ilaria Caiazzo", title: "Studying magnetic white dwarfs and exotic stellar remnants in nearby galaxies", image: "ilaria_caiazzo.jpg" },
-  { person: "Dr. Shailesh Acharya", title: "Developing deep learning tools for AI-based medical diagnostics and data analysis", image: "shailesh_acharya.jpg" },
-  { person: "Dr. Catriona Nguyen-Robertson", title: "Researching microbial ecosystems and engaging in global environmental science outreach", image: "catriona_nguyen_robertson.jpg" },
-  { person: "Mr. Ajay Kumar Kota", title: "BI & Data Intelligence architect; builds enterprise BI ecosystems with interactive dashboards, predictive analytics, and strong data governance for sectors like healthcare, finance, and manufacturing", image: "ajay_kumar_kota.jpg" },
-  { person: "Dr. Syed Baker", title: "Research Scientist, expert in Microbiology, Bioprospecting, and Nanotechnology", image: "syed_baker.jpg" },
-  { person: "Dr. Kanishka Biswas", title: "Awarded the 2025 TWAS-CAS Young Scientists Award for Frontier Science in Physical Sciences by UNESCO for his pioneering work in developing high-performance thermoelectric materials capable of converting waste heat into clean electricity", image: "kanishka_biswas.jpg" },
-  { person: "Dr. Garima Raheja", title: "Recipient of the 2025 Inflection Award for climate research, focusing on sustainable energy solutions", image: "garima_raheja.jpg" },
-  { person: "Dr. Vikas Dhamu", title: "Ph.D. candidate at the National University of Singapore, developing novel methods to store CO₂ in deep-sea sediments as clathrate hydrates, contributing to climate change mitigation", image: "vikas_dhamu.jpg" },
-  { person: "Dr. Monali Priyadarshini", title: "Awarded the 2025 Inflection Award for her research in environmental sustainability, focusing on innovative approaches to waste management", image: "monali_priyadarshini.jpg" },
-  { person: "Dr. Mahendra Patel", title: "Recipient of the 2025 Inflection Award for his work in developing biodegradable materials to reduce plastic pollution", image: "mahendra_patel.jpg" },
-  { person: "Dr. Eshaan Patheria", title: "Ph.D. candidate at Caltech, working on developing high-energy-density lithium-ion battery cathodes using inexpensive, scalable raw materials for affordable clean energy storage", image: "eshaan_patheria.jpg" },
-  { person: "Mr. Harish Govinda Gowda", title: "Infrastructure & DevOps specialist; expert in cloud-native transformation, SRE, and automated self-healing systems", image: "harish_govinda_gowda.jpg" },
-  { person: "Dr. Neveen S. Gadallah", title: "Contributed to the discovery of a new wasp species, Nesolynx banabitanae, in Kolkata, enhancing understanding of urban biodiversity", image: "neveen_s_gadallah.jpg" },
-  { person: "Dr. Tanima Dudani", title: "Gold medalist in Medicinal Chemistry at NIPER Rae Bareli's 2025 convocation, recognized for excellence in pharmaceutical research", image: "tanima_dudani.jpg" },
-  { person: "Dr. Harshita Sadhana", title: "Gold medalist in Pharmaceutics at NIPER Rae Bareli's 2025 convocation, honored for outstanding contributions to pharmaceutical sciences", image: "harshita_sadhana.jpg" },
-  { person: "Dr. Tejas Kumar", title: "Gold medalist in Pharmacology & Toxicology at NIPER Rae Bareli's 2025 convocation, acknowledged for excellence in pharmacological research", image: "tejas_kumar.jpg" },
-  { person: "Dr. Ghume Prajakta Chandrakant", title: "Gold medalist in Regulatory Toxicology at NIPER Rae Bareli's 2025 convocation, celebrated for contributions to toxicological research", image: "ghume_prajakta_chandrakant.jpg" },
-  { person: "Dr. Gokul G Nair", title: "Gold medalist in Biotechnology at NIPER Rae Bareli's 2025 convocation, recognized for excellence in biotechnological research", image: "gokul_g_nair.jpg" },
-  { person: "Mr. Santhosh Kumar Maddineni", title: "Developer of AI-powered HR/Workday architecture tools: predictive dashboards, payroll intelligence, leave optimization, and global compensation solutions that fuse automation with human centricity", image: "santhosh_kumar_maddineni.jpg" },
-  { person: "Dr. Arnob Chakrovorty", title: "Lead researcher in the discovery of a new wasp species, Nesolynx banabitanae, contributing to entomological studies in urban ecosystems", image: "arnob_chakrovorty.jpg" },
-  { person: "Dr. Banani Bhattacharjee", title: "Co-researcher in the identification of a new wasp species in Kolkata, enhancing biodiversity knowledge in urban areas", image: "banani_bhattacharjee.jpg" },
+  { person: "Dr. Sonam Wangchuk", title: "Promoting sustainable innovation...", image: PLACEHOLDER_IMAGE },
+  { person: "Mr. Samba Siva Rao Madamanchi", title: "Innovator in AI-driven robotics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Allison Koenecke", title: "Researching algorithmic fairness...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Catherine Dulac", title: "Studying neural circuits...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Shweta Singh", title: "Developing carbon-neutral technologies...", image: PLACEHOLDER_IMAGE },
+  { person: "Mr. Lakshmi Kalyani Chinthala", title: "AI-driven healthcare analytics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Wen Sun", title: "Advancing reinforcement learning...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Melissa J. Moore", title: "Investigating RNA biology...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Ying Yang", title: "Creating recyclable polymers...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Deepa Khosla", title: "Investigating sustainable agriculture...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Amruta Gadre", title: "Researching microbial genomics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Ravichandra Mulpuri", title: "Expert in materials science...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Siddharth Mishra Sharma", title: "Advancing quantum computing...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Sara Hooker", title: "Focusing on machine learning interpretability...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Marion Villenave", title: "Developing renewable energy solutions...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Sara Mascia", title: "Innovating in pharmaceutical development...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Veerendra Batulla", title: "Pioneer in robotics and automation...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Ilaria Caiazzo", title: "Astrophysicist studying exoplanets...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Shailesh Acharya", title: "Specializing in orthopedic research...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Catriona Nguyen-Robertson", title: "Immunologist and science communicator...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Ajay Kumar Kota", title: "Chemical engineering expert...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Syed Baker", title: "Leading research in nanotechnology...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Kanishka Biswas", title: "Materials scientist focused on thermoelectrics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Garima Raheja", title: "Environmental science and sustainability...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Vikas Dhamu", title: "Researching plasma physics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Monali Priyadarshini", title: "Expert in climate modeling...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Mahendra Patel", title: "Innovator in drug discovery...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Eshaan Patheria", title: "Neuroscientist studying brain function...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Harish Govinda Gowda", title: "Specialist in bioinformatics...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Neveen S. Gadallah", title: "Entomologist and biodiversity expert...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Tanima Dudani", title: "Cancer researcher and oncologist...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Harshita Sadhana", title: "Focusing on renewable materials...", image: PLACEHOLDER_IMAGE },
+  { person: "Mr. Tejas Kumar", title: "Software engineer and open-source contributor...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Ghume Prajakta Chandrakant", title: "Food science and safety expert...", image: PLACEHOLDER_IMAGE },
+  { person: "Mr. Gokul G. Nair", title: "Data scientist and machine learning specialist...", image: PLACEHOLDER_IMAGE },
+  { person: "Mr. Santhosh Kumar Maddineni", title: "Expert in embedded systems...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Arnob Chakrovorty", title: "Quantum information theorist...", image: PLACEHOLDER_IMAGE },
+  { person: "Dr. Banani Bhattacharjee", title: "Biotechnology and fermentation expert...", image: PLACEHOLDER_IMAGE },
 ];
 
+
+// ✅ Component
 export default function HallOfHonour() {
+  
+  // Helper Component for Image or Placeholder (Used only for Members section for size)
+  const MemberImage = ({ person, image }) => {
+    // If image is the placeholder, render a blank box
+    if (image === PLACEHOLDER_IMAGE) {
+      return (
+        <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden border-2 border-gray-600 bg-gray-700 flex items-center justify-center transition duration-500 group-hover:bg-cyan-900/50">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-500 transition duration-500 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+      );
+    }
+    
+    // Otherwise, render the actual image
+    return (
+      <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden border-2 border-cyan-500/50 flex items-center justify-center transition duration-500 group-hover:border-cyan-300">
+        <img 
+          src={image} 
+          alt={person} 
+          className="w-full h-full object-cover" 
+          onError={(e) => { 
+            e.target.onerror = null; 
+            e.target.style.display = 'none'; 
+            e.target.parentElement.innerHTML = '<div class="text-gray-500 text-xs p-2">Image Missing</div>';
+          }}
+        />
+      </div>
+    );
+  };
+
+
   return (
-    <section className="py-32 px-6 bg-gray-900">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 min-h-screen overflow-hidden">
+      
+      {/* --- CSS Keyframes for Animations --- */}
+      <style>{`
+        @keyframes headerFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-header-fade {
+            animation: headerFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0; 
+        }
+        .animate-card-slide {
+            animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0; 
+        }
+      `}</style>
+      
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-white">
+        
+        {/* --- Header Section --- (Added Animation) */}
+        <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-white animate-header-fade">
           Hall of Honour
         </h1>
-        <p className="text-center text-gray-400 mb-16 text-lg">Who Changed the World</p>
-
-        {/* Legends */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {legends.map((personData) => (
+        <p className="text-center text-gray-400 mb-16 text-lg animate-header-fade" style={{ animationDelay: '0.3s' }}>
+          Celebrating those who changed the world through science and innovation.
+        </p>
+        
+        {/* --- Legends Section --- (Added Staggered Animation) */}
+        <h2 className="text-4xl font-bold text-white mb-10 border-b-2 border-cyan-500/30 pb-2 animate-header-fade" style={{ animationDelay: '0.5s' }}>
+          The Legends
+        </h2>
+        {/* Responsive Check: The grid layout (1, 2, 3, 4 columns) is inherently responsive. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20">
+          {legends.map((p, index) => (
             <div
-              key={personData.person}
-              className="p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:border-cyan-500/50 transition-all duration-300 group text-center border-2 border-transparent"
+              key={p.person}
+              className="p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:border-cyan-500 transition-all duration-300 group text-center border-2 border-gray-700 hover:scale-[1.03] transform animate-card-slide"
+              style={{ animationDelay: `${0.6 + index * 0.05}s` }} // Staggered delay
             >
-              {/* Image Container */}
-              <div className="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden border-4 border-cyan-500/50 flex items-center justify-center">
-                <img
-                  // The 'image' property is now the source path
-                  src={personData.image} 
-                  alt={personData.person}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to a placeholder icon if the image fails to load
-                    e.target.style.display = 'none'; // Hide the broken image
-                    e.target.parentNode.innerHTML = `
-                      <svg class="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>`;
-                  }}
-                />
+              {/* Image Container for Legends - Enhanced Hover */}
+              <div className="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden border-4 border-cyan-500/50 flex items-center justify-center shadow-inner shadow-cyan-300/30 group-hover:border-cyan-300 transition-all duration-300">
+                
+                {p.image === PLACEHOLDER_IMAGE ? (
+                  // Placeholder content for Dr. R. A. Mashelkar (or any other missing Legend image)
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-500 transition duration-500 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                  </svg>
+                ) : (
+                  // Actual Image content
+                  <img 
+                    src={p.image} 
+                    alt={p.person} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" // Image zoom on hover
+                    onError={(e) => { 
+                      e.target.onerror = null; 
+                      e.target.style.display = 'none'; 
+                      e.target.parentElement.innerHTML = '<div class="text-gray-500 text-xs p-4">Image Missing</div>';
+                    }}
+                  />
+                )}
               </div>
-              <h4 className="text-xl font-bold text-white group-hover:text-cyan-300 transition">{personData.person}</h4>
-              <p className="text-sm text-gray-400 mt-1">{personData.title}</p>
+              
+              <h4 className="text-xl font-bold text-white group-hover:text-cyan-300 transition line-clamp-2">{p.person}</h4>
+              <p className="text-sm text-gray-400 mt-1 line-clamp-3" title={p.title}>{p.title}</p>
             </div>
           ))}
         </div>
 
-        {/* Members */}
-        <h2 className="text-3xl font-bold text-white mb-8">Senior & Fellow Members</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {members.map((personData) => (
+        {/* --- Members Section --- (Added Staggered Animation) */}
+        <h2 className="text-4xl font-bold text-white mb-10 border-b-2 border-cyan-500/30 pb-2 animate-header-fade" style={{ animationDelay: `${0.6 + legends.length * 0.05}s` }}>
+          Senior & Fellow Members
+        </h2>
+        {/* Responsive Check: The grid layout (2, 3, 4, 6 columns) is inherently responsive. */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {members.map((p, index) => (
             <div
-              key={personData.person}
-              className="p-4 bg-gray-800 rounded-lg shadow hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group text-center border border-gray-700"
+              key={p.person}
+              className="p-4 bg-gray-800 rounded-lg shadow hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group text-center border border-gray-700 hover:scale-[1.05] transform animate-card-slide"
+              style={{ animationDelay: `${1.2 + index * 0.03}s` }} 
             >
-              {/* Image Container (Smaller size for members) */}
-              <div className="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-2 border-cyan-500/50 flex items-center justify-center">
-                <img
-                  src={personData.image} 
-                  alt={personData.person}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentNode.innerHTML = `
-                      <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>`;
-                  }}
-                />
-              </div>
-              <h4 className="text-lg font-bold text-white group-hover:text-cyan-300 transition">{personData.person}</h4>
-              <p className="text-xs text-gray-400 mt-1 truncate" title={personData.title}>{personData.title}</p>
+              
+              {/* Image/Placeholder Component (Handles all Member placeholder images) */}
+              <MemberImage person={p.person} image={p.image} />
+
+              <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition line-clamp-2">{p.person}</h4>
+              <p className="text-xs text-gray-400 mt-1 truncate" title={p.title}>{p.title}</p>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import Logo from '../assets/Logo.jpeg'; // ✅ Correct path to your logo image
+import Logo from '../assets/Logo.PNG'; // ✅ Correct path to your logo image
 
 // === Inline SVG Icon Component ===
 const Icon = ({ path }) => (
@@ -85,7 +85,7 @@ function Navbar() {
 
       {/* === Mobile Menu === */}
       {mobileOpen && (
-        <div className="md:hidden bg-blue-900/90 backdrop-blur-sm border-t border-blue-700">
+        <div className="md:hidden bg-black backdrop-blur-sm border-t">
           <div className="px-6 py-3 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -111,3 +111,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+

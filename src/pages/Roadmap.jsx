@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 // --- Image Imports ---
 import img1 from '../assets/Training Session/1.png';
@@ -17,7 +18,7 @@ const Icon = ({ path, className = "w-6 h-6" }) => (
   </svg>
 );
 
-// --- Component Data ---
+// --- Component Data (Unchanged) ---
 const services = [
   {
     title: 'Scientific Publication Assistance',
@@ -57,11 +58,12 @@ const trainingImages = [
   { src: img8, alt: 'Microbiology work under a laminar flow hood' },
 ];
 
-const ImageComponent = ({ src, alt }) => (
+const ImageComponent = ({ src, alt, delay }) => (
   <img
     src={src}
     alt={alt}
-    className="w-full h-48 object-cover rounded-xl shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform"
+    className="w-full h-48 object-cover rounded-xl shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.02] transform animate-slide-up-fade"
+    style={{ animationDelay: `${delay}s` }}
     onError={(e) => {
       e.target.onerror = null;
       e.target.src = "https://placehold.co/600x400/082f49/e0f7fa?text=Image+Load+Error";
@@ -74,27 +76,51 @@ const ServicesPage = () => {
   const [loading] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 font-inter pt-24 pb-12">
+    <div className="min-h-screen bg-gray-900 text-gray-100 font-inter pt-24 pb-12 overflow-hidden">
+        
+        {/* --- CSS Keyframes for Animations --- */}
+        <style>{`
+            @keyframes headerFadeUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-header-fade {
+                animation: headerFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+                opacity: 0; 
+            }
+            .animate-slide-up-fade {
+                animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+                opacity: 0; 
+            }
+        `}</style>
+        
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-white">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-white animate-header-fade">
             Our Core <span className="text-cyan-400">Services</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto animate-header-fade" style={{ animationDelay: '0.3s' }}>
             Empowering PhD scholars and academics through specialized support across the entire research lifecycle.
           </p>
         </header>
 
+        {/* Services Cards Section (Staggered Animation) */}
         <section className="mb-20">
+            {/* Responsive Check: The grid layout (1, 2, 3 columns) is inherently responsive. */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <div
                 key={service.title}
-                className="bg-gray-800 border border-cyan-400 p-8 rounded-xl shadow-2xl hover:shadow-cyan-500/30 transition duration-300 transform hover:-translate-y-1"
+                className="bg-gray-800 border border-cyan-400 p-8 rounded-xl shadow-2xl hover:shadow-cyan-500/30 transition duration-300 transform hover:-translate-y-1 animate-slide-up-fade"
+                style={{ animationDelay: `${0.5 + index * 0.1}s` }} // Staggered delay
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-3 bg-cyan-400 rounded-full text-gray-800 shadow-lg">
+                  <div className="p-3 bg-cyan-400 rounded-full text-gray-800 shadow-lg transition duration-300 group-hover:bg-cyan-300">
                     <Icon path={service.iconPath} className="w-6 h-6" />
                   </div>
                   <h2 className="text-2xl font-bold ml-4 text-white">{service.title}</h2>
@@ -107,34 +133,38 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        {/* Training & Events Section (Staggered Animation) */}
         <section className="text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">
+          <h2 className="text-4xl font-bold mb-6 text-white animate-slide-up-fade" style={{ animationDelay: `${0.5 + services.length * 0.1 + 0.2}s` }}>
             <span className="text-cyan-400">Training</span> and Event Highlights
           </h2>
-          <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-10">
+          <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-10 animate-slide-up-fade" style={{ animationDelay: `${0.5 + services.length * 0.1 + 0.4}s` }}>
             A glimpse into our dynamic workshops, conferences, and collaborative training sessions.
           </p>
 
+            {/* Responsive Check: The grid layouts (1, 2, 3 columns) and (1, 2, 4 columns) are inherently responsive. */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {trainingImages.slice(0, 3).map((img, index) => (
-              <ImageComponent key={index} src={img.src} alt={img.alt} />
+              <ImageComponent key={index} src={img.src} alt={img.alt} delay={1.4 + index * 0.1} />
             ))}
           </div>
 
           {trainingImages.length > 3 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
               {trainingImages.slice(3).map((img, index) => (
-                <ImageComponent key={index + 3} src={img.src} alt={img.alt} />
+                <ImageComponent key={index + 3} src={img.src} alt={img.alt} delay={1.7 + index * 0.1} />
               ))}
             </div>
           )}
 
           <div className="mt-10">
-            <button
-              className="mt-8 px-8 py-3 bg-cyan-500 text-blue-950 font-semibold text-lg rounded-full shadow-lg transition duration-300 transform hover:bg-cyan-400 hover:scale-[1.05]"
-            >
-              Get Details on Upcoming Trainings
-            </button>
+           <Link
+  to="/contact"
+  className="mt-8 inline-block px-8 py-3 bg-cyan-500 text-blue-950 font-semibold text-lg rounded-full shadow-lg transition duration-300 transform hover:bg-cyan-400 hover:scale-[1.08] animate-slide-up-fade"
+  style={{ animationDelay: `${2.1 + trainingImages.length * 0.1}s` }}
+>
+  Get Details on Upcoming Trainings
+</Link>
           </div>
         </section>
 
