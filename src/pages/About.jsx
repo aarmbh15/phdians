@@ -13,7 +13,7 @@ import authorImg0 from '../assets/Author Gallary/author10.jpg';
 
 // --- Data for Author Cards ---
 const authorProfiles = [
-  { src: authorImg0, name: 'Author Name 1', title: 'Lead Researcher' },
+  { src: authorImg0, name: 'Ms. Simran. I', title: 'Lead Researcher' },
   { src: authorImg1, name: 'Author Name 2', title: 'Data Scientist' },
   { src: authorImg3, name: 'Author Name 3', title: 'PhD Scholar' },
   { src: authorImg4, name: 'Author Name 4', title: 'Professor Emeritus' },
@@ -23,8 +23,8 @@ const authorProfiles = [
   { src: authorImg8, name: 'Author Name 8', title: 'AI Expert' },
   { src: authorImg9, name: 'Author Name 9', title: 'Economist' },
   // Adding a few more profiles to ensure scrolling is visible
-  { src: authorImg0, name: 'Author Name 10', title: 'Biologist' },
-  { src: authorImg1, name: 'Author Name 11', title: 'Chemist' },
+  // { src: authorImg0, name: 'Author Name 10', title: 'Biologist' },
+  // { src: authorImg1, name: 'Author Name 11', title: 'Chemist' },
 ];
 
 // --- Author Card Component ---
