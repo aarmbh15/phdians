@@ -1,78 +1,127 @@
 import React from 'react';
+// Import all images for mockJournals
+import journalImg1 from '/src/assets/ResearchArticleScrolling/1.jpeg';
+import journalImg2 from '/src/assets/ResearchArticleScrolling/2.jpeg';
+import journalImg3 from '/src/assets/ResearchArticleScrolling/3.jpeg';
+import journalImg4 from '/src/assets/ResearchArticleScrolling/4.jpeg';
+import journalImg5 from '/src/assets/ResearchArticleScrolling/5.jpeg';
+import journalImg6 from '/src/assets/ResearchArticleScrolling/6.jpeg';
+import journalImg7 from '/src/assets/ResearchArticleScrolling/7.jpeg';
+import journalImg8 from '/src/assets/ResearchArticleScrolling/8.jpeg';
+import journalImg9 from '/src/assets/ResearchArticleScrolling/9.jpeg';
+import journalImg10 from '/src/assets/ResearchArticleScrolling/10.jpeg';
+import journalImg11 from '/src/assets/ResearchArticleScrolling/11.jpeg';
+import journalImg12 from '/src/assets/ResearchArticleScrolling/12.jpeg';
+import journalImg13 from '/src/assets/ResearchArticleScrolling/13.jpeg';
+import journalImg14 from '/src/assets/ResearchArticleScrolling/14.jpeg';
+import journalImg15 from '/src/assets/ResearchArticleScrolling/15.jpeg';
+import journalImg16 from '/src/assets/ResearchArticleScrolling/16.jpeg';
+import journalImg17 from '/src/assets/ResearchArticleScrolling/17.jpeg';
+import journalImg18 from '/src/assets/ResearchArticleScrolling/18.jpeg';
+import journalImg19 from '/src/assets/ResearchArticleScrolling/19.jpeg';
+import journalImg20 from '/src/assets/ResearchArticleScrolling/20.jpeg';
+import journalImg21 from '/src/assets/ResearchArticleScrolling/21.jpeg';
+import journalImg22 from '/src/assets/ResearchArticleScrolling/22.jpeg';
+import journalImg23 from '/src/assets/ResearchArticleScrolling/23.jpeg';
+import journalImg24 from '/src/assets/ResearchArticleScrolling/24.jpeg';
+import journalImg25 from '/src/assets/ResearchArticleScrolling/25.jpeg';
+import journalImg26 from '/src/assets/ResearchArticleScrolling/26.jpeg';
+import journalImg27 from '/src/assets/ResearchArticleScrolling/27.jpeg';
+import journalImg28 from '/src/assets/ResearchArticleScrolling/28.jpeg';
+import journalImg29 from '/src/assets/ResearchArticleScrolling/29.jpeg';
+import journalImg30 from '/src/assets/ResearchArticleScrolling/30.jpeg';
+import journalImg31 from '/src/assets/ResearchArticleScrolling/31.jpeg';
+import journalImg32 from '/src/assets/ResearchArticleScrolling/32.jpeg';
+import journalImg33 from '/src/assets/ResearchArticleScrolling/33.jpeg';
+import journalImg34 from '/src/assets/ResearchArticleScrolling/34.jpeg';
+import journalImg35 from '/src/assets/ResearchArticleScrolling/35.jpeg';
+import journalImg36 from '/src/assets/ResearchArticleScrolling/36.jpeg';
+import journalImg37 from '/src/assets/ResearchArticleScrolling/37.jpeg';
+// import journalImg38 from '/src/assets/ResearchArticleScrolling/38.jpeg';
+import journalImg39 from '/src/assets/ResearchArticleScrolling/39.jpeg';
+// import journalImg40 from '/src/assets/ResearchArticleScrolling/40.jpeg';
+import journalImg41 from '/src/assets/ResearchArticleScrolling/41.jpeg';
+import journalImg42 from '/src/assets/ResearchArticleScrolling/42.jpeg';
+import journalImg43 from '/src/assets/ResearchArticleScrolling/43.jpeg';
+
+// Import all images for mockBooks
+import bookImg1 from '/src/assets/Scrolling Books Cover/1.jpg';
+import bookImg2 from '/src/assets/Scrolling Books Cover/2.jpg';
+import bookImg3 from '/src/assets/Scrolling Books Cover/3.png';
+import bookImg4 from '/src/assets/Scrolling Books Cover/4.jpg';
+import bookImg5 from '/src/assets/Scrolling Books Cover/5.jpg';
+import bookImg6 from '/src/assets/Scrolling Books Cover/6.png';
+import bookImg7 from '/src/assets/Scrolling Books Cover/7.jpg';
+import bookImg8 from '/src/assets/Scrolling Books Cover/8.png';
+import bookImg9 from '/src/assets/Scrolling Books Cover/9.png';
+import bookImg10 from '/src/assets/Scrolling Books Cover/10.png';
+import bookImg11 from '/src/assets/Scrolling Books Cover/11.png';
+
 
 // --- Mock Data: Journal/Article Entries (43 total) ---
 const mockJournals = [
-  // Updated all 'img' paths to use '.jpeg' extension
-  { id: 1, title: "Syed et al., 2019a-1 (Nanoparticles)", pdfUrl: "/src/assets/ResearchArticleScrolling/1.pdf", year: 2019, img: "/src/assets/ResearchArticleScrolling/1.jpeg" },
-  { id: 2, title: "Syed et al., 2017b Nanostructure-1", pdfUrl: "/src/assets/ResearchArticleScrolling/2.pdf", year: 2017, img: "/src/assets/ResearchArticleScrolling/2.jpeg" },
-  { id: 3, title: "Syed et al., 2016. EMT-1 (Cell Migration)", pdfUrl: "/src/assets/ResearchArticleScrolling/3.pdf", year: 2016, img: "/src/assets/ResearchArticleScrolling/3.jpeg" },
-  { id: 4, title: "Mycosynthesis of silver nanoparticles bearing antibacterial activity", pdfUrl: "/src/assets/ResearchArticleScrolling/4.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/4.jpeg" },
-  { id: 5, title: "Synthesis of silver nanobactericides by A. migulanus 141", pdfUrl: "/src/assets/ResearchArticleScrolling/5.pdf", year: 2019, img: "/src/assets/ResearchArticleScrolling/5.jpeg" },
-  { id: 6, title: "Endogenic mediated synthesis of gold nanoparticles", pdfUrl: "/src/assets/ResearchArticleScrolling/6.pdf", year: 2015, img: "/src/assets/ResearchArticleScrolling/6.jpeg" },
-  { id: 7, title: "Biomimetic Synthesis of Silver Nanoparticles", pdfUrl: "/src/assets/ResearchArticleScrolling/7.pdf", year: 2016, img: "/src/assets/ResearchArticleScrolling/7.jpeg" },
-  { id: 8, title: "2016 Syed Co-authored Publication A", pdfUrl: "/src/assets/ResearchArticleScrolling/8.pdf", year: 2016, img: "/src/assets/ResearchArticleScrolling/8.jpeg" },
-  { id: 9, title: "Actinomycetic Symbionts Inhabiting Euphorbia hirta L.", pdfUrl: "/src/assets/ResearchArticleScrolling/9.pdf", year: 2017, img: "/src/assets/ResearchArticleScrolling/9.jpeg" },
-  { id: 10, title: "Syed Co author SB.HCY. Research Paper", pdfUrl: "/src/assets/ResearchArticleScrolling/10.pdf", year: 2015, img: "/src/assets/ResearchArticleScrolling/10.jpeg" },
-  { id: 11, title: "Bacterial Endo-Symbiont Inhabiting Tridax procumbens L.", pdfUrl: "/src/assets/ResearchArticleScrolling/11.pdf", year: 2016, img: "/src/assets/ResearchArticleScrolling/11.jpeg" },
-  { id: 12, title: "Syed et al., 2019b-1 (Drug Delivery)", pdfUrl: "/src/assets/ResearchArticleScrolling/12.pdf", year: 2019, img: "/src/assets/ResearchArticleScrolling/12.jpeg" },
-  { id: 13, title: "Biogenic nanoparticles and their synergistic effect with antibiotics", pdfUrl: "/src/assets/ResearchArticleScrolling/13.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/13.jpeg" },
-  { id: 14, title: "Biosynthesis of gold nanoparticles by Pseudomonas veronii AS41G", pdfUrl: "/src/assets/ResearchArticleScrolling/14.pdf", year: 2017, img: "/src/assets/ResearchArticleScrolling/14.jpeg" },
-  { id: 15, title: "Extracellular synthesis of silver nanoparticles by P. veronii AS41G", pdfUrl: "/src/assets/ResearchArticleScrolling/15.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/15.jpeg" },
-  { id: 16, title: "Journal of pure and applied microbiology - Issue 1", pdfUrl: "/src/assets/ResearchArticleScrolling/16.pdf", year: 2014, img: "/src/assets/ResearchArticleScrolling/16.jpeg" },
-  { id: 17, title: "Syed .Bioimpacts. Plants Emerging as Nano-1", pdfUrl: "/src/assets/ResearchArticleScrolling/17.pdf", year: 2019, img: "/src/assets/ResearchArticleScrolling/17.jpeg" },
-  { id: 18, title: "Syed CFTRI.chemiluminescence research", pdfUrl: "/src/assets/ResearchArticleScrolling/18.pdf", year: 2016, img: "/src/assets/ResearchArticleScrolling/18.jpeg" },
-  { id: 19, title: "Syed 2020 a-11 (Environmental Science)", pdfUrl: "/src/assets/ResearchArticleScrolling/19.pdf", year: 2020, img: "/src/assets/ResearchArticleScrolling/19.jpeg" },
-  { id: 20, title: "Syed 2020 b-11 (Biotechnology)", pdfUrl: "/src/assets/ResearchArticleScrolling/20.pdf", year: 2020, img: "/src/assets/ResearchArticleScrolling/20.jpeg" },
-  { id: 21, title: "Syed 2022-11 (Materials Research)", pdfUrl: "/src/assets/ResearchArticleScrolling/21.pdf", year: 2022, img: "/src/assets/ResearchArticleScrolling/21.jpeg" },
-  { id: 22, title: "Syed co author 2020-11 (Genetics)", pdfUrl: "/src/assets/ResearchArticleScrolling/22.pdf", year: 2020, img: "/src/assets/ResearchArticleScrolling/22.jpeg" },
-  { id: 23, title: "Syed co author 2021-11 (Biophysics)", pdfUrl: "/src/assets/ResearchArticleScrolling/23.pdf", year: 2021, img: "/src/assets/ResearchArticleScrolling/23.jpeg" },
-  { id: 24, title: "Syed et al., 2023 nanicellulosic film", pdfUrl: "/src/assets/ResearchArticleScrolling/24.pdf", year: 2023, img: "/src/assets/ResearchArticleScrolling/24.jpeg" },
-  { id: 25, title: "Syed et al., 2023-1 (Water Treatment)", pdfUrl: "/src/assets/ResearchArticleScrolling/25.pdf", year: 2023, img: "/src/assets/ResearchArticleScrolling/25.jpeg" },
-  { id: 26, title: "Syed et al., 2023b-1 (Electrochemistry)", pdfUrl: "/src/assets/ResearchArticleScrolling/26.pdf", year: 2023, img: "/src/assets/ResearchArticleScrolling/26.jpeg" },
-  { id: 27, title: "Syed et al., 2012 (Microbial Ecology A)", pdfUrl: "/src/assets/ResearchArticleScrolling/27.pdf", year: 2012, img: "/src/assets/ResearchArticleScrolling/27.jpeg" },
-  { id: 28, title: "Syed et al., 2012 (Microbial Ecology B)", pdfUrl: "/src/assets/ResearchArticleScrolling/28.pdf", year: 2012, img: "/src/assets/ResearchArticleScrolling/28.jpeg" },
-  { id: 29, title: "Syed et al., 2012 (Microbial Ecology C)", pdfUrl: "/src/assets/ResearchArticleScrolling/29.pdf", year: 2012, img: "/src/assets/ResearchArticleScrolling/29.jpeg" },
-  { id: 30, title: "Syed et al., 2012 biodecaffeination-1", pdfUrl: "/src/assets/ResearchArticleScrolling/30.pdf", year: 2012, img: "/src/assets/ResearchArticleScrolling/30.jpeg" },
-  { id: 31, title: "Syed co author 2013 (Pharmacology A)", pdfUrl: "/src/assets/ResearchArticleScrolling/31.pdf", year: 2013, img: "/src/assets/ResearchArticleScrolling/31.jpeg" },
-  { id: 32, title: "Syed Co author 2013 (Pharmacology B)", pdfUrl: "/src/assets/ResearchArticleScrolling/32.pdf", year: 2013, img: "/src/assets/ResearchArticleScrolling/32.jpeg" },
-  { id: 33, title: "Syed and Satish 2012 (Bioprocess)", pdfUrl: "/src/assets/ResearchArticleScrolling/33.pdf", year: 2012, img: "/src/assets/ResearchArticleScrolling/33.jpeg" },
-  { id: 34, title: "Syed et al., 2015 (Immunology)", pdfUrl: "/src/assets/ResearchArticleScrolling/34.pdf", year: 2015, img: "/src/assets/ResearchArticleScrolling/34.jpeg" },
-  { id: 35, title: "Syed co author (Food Science A)", pdfUrl: "/src/assets/ResearchArticleScrolling/35.pdf", year: 2014, img: "/src/assets/ResearchArticleScrolling/35.jpeg" },
-  { id: 36, title: "Syed Co author (Food Science B)", pdfUrl: "/src/assets/ResearchArticleScrolling/36.pdf", year: 2014, img: "/src/assets/ResearchArticleScrolling/36.jpeg" },
-  { id: 37, title: "Syed co author (Food Science C)", pdfUrl: "/src/assets/ResearchArticleScrolling/37.pdf", year: 2014, img: "/src/assets/ResearchArticleScrolling/37.jpeg" },
-  { id: 38, title: "Syed et al., 2018 b Applied nanoscience-1", pdfUrl: "/src/assets/ResearchArticleScrolling/38.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/38.jpeg" },
-  { id: 39, title: "Syed et al., 2018c-1 (Toxicology)", pdfUrl: "/src/assets/ResearchArticleScrolling/39.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/39.jpeg" },
-  { id: 40, title: "2018.Syed et al., 2018_2018_2018-1", pdfUrl: "/src/assets/ResearchArticleScrolling/40.pdf", year: 2018, img: "/src/assets/ResearchArticleScrolling/40.jpeg" },
-  { id: 41, title: "Syed et al., 2017 ETAP final copy-1", pdfUrl: "/src/assets/ResearchArticleScrolling/41.pdf", year: 2017, img: "/src/assets/ResearchArticleScrolling/41.jpeg" },
-  { id: 42, title: "Syed et al., 2017a Nanoagroparticles-1", pdfUrl: "/src/assets/ResearchArticleScrolling/42.pdf", year: 2017, img: "/src/assets/ResearchArticleScrolling/42.jpeg" },
-  { id: 43, title: "Syed et al., 2024 (Latest Research)", pdfUrl: "/src/assets/ResearchArticleScrolling/43.pdf", year: 2024, img: "/src/assets/ResearchArticleScrolling/43.jpeg" },
+  // Updated all 'img' paths to use imported variables
+  { id: 1, title: "Syed et al., 2019a-1 (Nanoparticles)", pdfUrl: "/src/assets/ResearchArticleScrolling/1.pdf", year: 2019, img: journalImg1 },
+  { id: 2, title: "Syed et al., 2017b Nanostructure-1", pdfUrl: "/src/assets/ResearchArticleScrolling/2.pdf", year: 2017, img: journalImg2 },
+  { id: 3, title: "Syed et al., 2016. EMT-1 (Cell Migration)", pdfUrl: "/src/assets/ResearchArticleScrolling/3.pdf", year: 2016, img: journalImg3 },
+  { id: 4, title: "Mycosynthesis of silver nanoparticles bearing antibacterial activity", pdfUrl: "/src/assets/ResearchArticleScrolling/4.pdf", year: 2018, img: journalImg4 },
+  { id: 5, title: "Synthesis of silver nanobactericides by A. migulanus 141", pdfUrl: "/src/assets/ResearchArticleScrolling/5.pdf", year: 2019, img: journalImg5 },
+  { id: 6, title: "Endogenic mediated synthesis of gold nanoparticles", pdfUrl: "/src/assets/ResearchArticleScrolling/6.pdf", year: 2015, img: journalImg6 },
+  { id: 7, title: "Biomimetic Synthesis of Silver Nanoparticles", pdfUrl: "/src/assets/ResearchArticleScrolling/7.pdf", year: 2016, img: journalImg7 },
+  { id: 8, title: "2016 Syed Co-authored Publication A", pdfUrl: "/src/assets/ResearchArticleScrolling/8.pdf", year: 2016, img: journalImg8 },
+  { id: 9, title: "Actinomycetic Symbionts Inhabiting Euphorbia hirta L.", pdfUrl: "/src/assets/ResearchArticleScrolling/9.pdf", year: 2017, img: journalImg9 },
+  { id: 10, title: "Syed Co author SB.HCY. Research Paper", pdfUrl: "/src/assets/ResearchArticleScrolling/10.pdf", year: 2015, img: journalImg10 },
+  { id: 11, title: "Bacterial Endo-Symbiont Inhabiting Tridax procumbens L.", pdfUrl: "/src/assets/ResearchArticleScrolling/11.pdf", year: 2016, img: journalImg11 },
+  { id: 12, title: "Syed et al., 2019b-1 (Drug Delivery)", pdfUrl: "/src/assets/ResearchArticleScrolling/12.pdf", year: 2019, img: journalImg12 },
+  { id: 13, title: "Biogenic nanoparticles and their synergistic effect with antibiotics", pdfUrl: "/src/assets/ResearchArticleScrolling/13.pdf", year: 2018, img: journalImg13 },
+  { id: 14, title: "Biosynthesis of gold nanoparticles by Pseudomonas veronii AS41G", pdfUrl: "/src/assets/ResearchArticleScrolling/14.pdf", year: 2017, img: journalImg14 },
+  { id: 15, title: "Extracellular synthesis of silver nanoparticles by P. veronii AS41G", pdfUrl: "/src/assets/ResearchArticleScrolling/15.pdf", year: 2018, img: journalImg15 },
+  { id: 16, title: "Journal of pure and applied microbiology - Issue 1", pdfUrl: "/src/assets/ResearchArticleScrolling/16.pdf", year: 2014, img: journalImg16 },
+  { id: 17, title: "Syed .Bioimpacts. Plants Emerging as Nano-1", pdfUrl: "/src/assets/ResearchArticleScrolling/17.pdf", year: 2019, img: journalImg17 },
+  { id: 18, title: "Syed CFTRI.chemiluminescence research", pdfUrl: "/src/assets/ResearchArticleScrolling/18.pdf", year: 2016, img: journalImg18 },
+  { id: 19, title: "Syed 2020 a-11 (Environmental Science)", pdfUrl: "/src/assets/ResearchArticleScrolling/19.pdf", year: 2020, img: journalImg19 },
+  { id: 20, title: "Syed 2020 b-11 (Biotechnology)", pdfUrl: "/src/assets/ResearchArticleScrolling/20.pdf", year: 2020, img: journalImg20 },
+  { id: 21, title: "Syed 2022-11 (Materials Research)", pdfUrl: "/src/assets/ResearchArticleScrolling/21.pdf", year: 2022, img: journalImg21 },
+  { id: 22, title: "Syed co author 2020-11 (Genetics)", pdfUrl: "/src/assets/ResearchArticleScrolling/22.pdf", year: 2020, img: journalImg22 },
+  { id: 23, title: "Syed co author 2021-11 (Biophysics)", pdfUrl: "/src/assets/ResearchArticleScrolling/23.pdf", year: 2021, img: journalImg23 },
+  { id: 24, title: "Syed et al., 2023 nanicellulosic film", pdfUrl: "/src/assets/ResearchArticleScrolling/24.pdf", year: 2023, img: journalImg24 },
+  { id: 25, title: "Syed et al., 2023-1 (Water Treatment)", pdfUrl: "/src/assets/ResearchArticleScrolling/25.pdf", year: 2023, img: journalImg25 },
+  { id: 26, title: "Syed et al., 2023b-1 (Electrochemistry)", pdfUrl: "/src/assets/ResearchArticleScrolling/26.pdf", year: 2023, img: journalImg26 },
+  { id: 27, title: "Syed et al., 2012 (Microbial Ecology A)", pdfUrl: "/src/assets/ResearchArticleScrolling/27.pdf", year: 2012, img: journalImg27 },
+  { id: 28, title: "Syed et al., 2012 (Microbial Ecology B)", pdfUrl: "/src/assets/ResearchArticleScrolling/28.pdf", year: 2012, img: journalImg28 },
+  { id: 29, title: "Syed et al., 2012 (Microbial Ecology C)", pdfUrl: "/src/assets/ResearchArticleScrolling/29.pdf", year: 2012, img: journalImg29 },
+  { id: 30, title: "Syed et al., 2012 biodecaffeination-1", pdfUrl: "/src/assets/ResearchArticleScrolling/30.pdf", year: 2012, img: journalImg30 },
+  { id: 31, title: "Syed co author 2013 (Pharmacology A)", pdfUrl: "/src/assets/ResearchArticleScrolling/31.pdf", year: 2013, img: journalImg31 },
+  { id: 32, title: "Syed Co author 2013 (Pharmacology B)", pdfUrl: "/src/assets/ResearchArticleScrolling/32.pdf", year: 2013, img: journalImg32 },
+  { id: 33, title: "Syed and Satish 2012 (Bioprocess)", pdfUrl: "/src/assets/ResearchArticleScrolling/33.pdf", year: 2012, img: journalImg33 },
+  { id: 34, title: "Syed et al., 2015 (Immunology)", pdfUrl: "/src/assets/ResearchArticleScrolling/34.pdf", year: 2015, img: journalImg34 },
+  { id: 35, title: "Syed co author (Food Science A)", pdfUrl: "/src/assets/ResearchArticleScrolling/35.pdf", year: 2014, img: journalImg35 },
+  { id: 36, title: "Syed Co author (Food Science B)", pdfUrl: "/src/assets/ResearchArticleScrolling/36.pdf", year: 2014, img: journalImg36 },
+  { id: 37, title: "Syed co author (Food Science C)", pdfUrl: "/src/assets/ResearchArticleScrolling/37.pdf", year: 2014, img: journalImg37 },
+  // { id: 38, title: "Syed et al., 2018 b Applied nanoscience-1", pdfUrl: "/src/assets/ResearchArticleScrolling/38.pdf", year: 2018, img: journalImg38 },
+  { id: 39, title: "Syed et al., 2018c-1 (Toxicology)", pdfUrl: "/src/assets/ResearchArticleScrolling/39.pdf", year: 2018, img: journalImg39 },
+  // { id: 40, title: "2018.Syed et al., 2018_2018_2018-1", pdfUrl: "/src/assets/ResearchArticleScrolling/40.pdf", year: 2018, img: journalImg40 },
+  { id: 41, title: "Syed et al., 2017 ETAP final copy-1", pdfUrl: "/src/assets/ResearchArticleScrolling/41.pdf", year: 2017, img: journalImg41 },
+  { id: 42, title: "Syed et al., 2017a Nanoagroparticles-1", pdfUrl: "/src/assets/ResearchArticleScrolling/42.pdf", year: 2017, img: journalImg42 },
+  { id: 43, title: "Syed et al., 2024 (Latest Research)", pdfUrl: "/src/assets/ResearchArticleScrolling/43.pdf", year: 2024, img: journalImg43 },
 ]; 
 
-// --- Mock Data: Book Entries (10 total) ---
+// --- Mock Data: Book Entries (11 total) ---
 const mockBooks = [
-  // 1.jpg
-  { id: 1, title: "Basics of Microbiology Students learning Guide", year: 2021, publisher: "Academic Press", img: "/src/assets/Scrolling Books Cover/1.jpg" },
-  // 2.jpg
-  { id: 2, title: "Bioelectricity Microbial fuel cell", year: 2022, publisher: "Wiley", img: "/src/assets/Scrolling Books Cover/2.jpg" },
-  // 3.png
-  { id: 3, title: "Book Chapter 1: Nanotechnology in Biology", year: 2020, publisher: "Springer", img: "/src/assets/Scrolling Books Cover/3.png" },
-  // 4.jpg
-  { id: 4, title: "Book chapter 2: Advanced Topics", year: 2021, publisher: "Elsevier", img: "/src/assets/Scrolling Books Cover/4.jpg" },
-  // 5.jpg
-  { id: 5, title: "Book chapter 3: Bioremediation", year: 2022, publisher: "Taylor & Francis", img: "/src/assets/Scrolling Books Cover/5.jpg" },
-  // 6.png
-  { id: 6, title: "Book chapter 4: Industrial Applications", year: 2023, publisher: "CRC Press", img: "/src/assets/Scrolling Books Cover/6.png" },
-  // 7.jpg
-  { id: 7, title: "COVID 19 2020: A Microbial Perspective", year: 2020, publisher: "Pandemic Insights", img: "/src/assets/Scrolling Books Cover/7.jpg" },
-  // 8.png
-  { id: 8, title: "Meet the microbes: An Introduction", year: 2019, publisher: "Science Ed.", img: "/src/assets/Scrolling Books Cover/8.png" }, 
-  // 9.png
-  { id: 9, title: "Microbial Nanotechnology and its applications", year: 2023, publisher: "CRC Press", img: "/src/assets/Scrolling Books Cover/9.png" }, 
-  // 10.png
-  { id: 10, title: "Vaccines and its importance in public health", year: 2022, publisher: "Health Today", img: "/src/assets/Scrolling Books Cover/10.png" },
-  // 11.png
-  { id: 11, title: "Placeholder Title for Book 11", year: 2024, publisher: "New Publisher", img: "/src/assets/Scrolling Books Cover/11.png" } 
+  // Using imported book image variables
+  { id: 1, title: "Basics of Microbiology Students learning Guide", year: 2021, publisher: "Academic Press", img: bookImg1 },
+  { id: 2, title: "Bioelectricity Microbial fuel cell", year: 2022, publisher: "Wiley", img: bookImg2 },
+  { id: 3, title: "Book Chapter 1: Nanotechnology in Biology", year: 2020, publisher: "Springer", img: bookImg3 },
+  { id: 4, title: "Book chapter 2: Advanced Topics", year: 2021, publisher: "Elsevier", img: bookImg4 },
+  { id: 5, title: "Book chapter 3: Bioremediation", year: 2022, publisher: "Taylor & Francis", img: bookImg5 },
+  { id: 6, title: "Book chapter 4: Industrial Applications", year: 2023, publisher: "CRC Press", img: bookImg6 },
+  { id: 7, title: "COVID 19 2020: A Microbial Perspective", year: 2020, publisher: "Pandemic Insights", img: bookImg7 },
+  { id: 8, title: "Meet the microbes: An Introduction", year: 2019, publisher: "Science Ed.", img: bookImg8 }, 
+  { id: 9, title: "Microbial Nanotechnology and its applications", year: 2023, publisher: "CRC Press", img: bookImg9 }, 
+  { id: 10, title: "Vaccines and its importance in public health", year: 2022, publisher: "Health Today", img: bookImg10 },
+  { id: 11, title: "Placeholder Title for Book 11", year: 2024, publisher: "New Publisher", img: bookImg11 } 
 ];
+
 // Helper icon for PDF link 
 const FileTextIcon = (props) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +162,8 @@ const PublicationList = ({ title, items, isBook, duration = '120s' }) => {
                 ${!isBook ? 'border border-cyan-500/50' : 'shadow-inner shadow-gray-900'} 
               `}>
                 <img
-                  src={item.img}
+                  // The img property now holds the imported module, which is the correct source URL
+                  src={item.img} 
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" // Enhanced zoom
                   // Fallback for image loading error
@@ -137,25 +187,11 @@ const PublicationList = ({ title, items, isBook, duration = '120s' }) => {
                 {isBook ? `Year: ${item.year || 'N/A'}` : `ID: ${item.id}`}
               </p>
 
-              {/* ACTION: View PDF Button (Only for Journals/Articles) */}
-              {/* {!isBook && (
-                <a
-                  href={item.pdfUrl}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center px-4 py-2 text-sm font-semibold text-black bg-cyan-500 rounded-lg shadow-xl shadow-cyan-500/30 hover:bg-cyan-400 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-cyan-400/50"
-                >
-                  <FileTextIcon className="w-4 h-4 mr-2" />
-                  View PDF & Learn More
-                </a>
-              )} */}
+              {/* ACTION: View PDF Button (Only for Journals/Articles) - Still commented out */}
             </div>
           ))}
         </div>
       </div>
-      {/* <p className="text-xs text-gray-500 mt-4 italic">
-        *Scroll is auto-animated. Hover over the section to pause the scroll.*
-      </p> */}
     </div>
   );
 };
@@ -210,23 +246,10 @@ const Publications = () => {
 
         /* Hide the manual scrollbar, as the movement is animated */
         .publication-scroll-container-wrapper {
-             /* Use padding-bottom for the gap where the scrollbar would be */
-             padding-bottom: 1rem; 
+              /* Use padding-bottom for the gap where the scrollbar would be */
+              padding-bottom: 1rem; 
         }
-
-        /* You can uncomment this section if you still want a visual manual scrollbar as a fallback */
-        /*
-        .publication-scroll-container-wrapper::-webkit-scrollbar {
-            height: 8px;
-        }
-        .publication-scroll-container-wrapper::-webkit-scrollbar-thumb {
-            background-color: #06b6d4; 
-            border-radius: 10px;
-        }
-        .publication-scroll-container-wrapper::-webkit-scrollbar-track {
-            background: #1f2937;
-        }
-        */
+        
       `}</style>
       
       <div className="py-20 px-4 sm:px-6">

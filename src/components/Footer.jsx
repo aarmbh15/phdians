@@ -3,51 +3,43 @@ import Logo from '../assets/Logo.PNG';
 import Marquee from 'react-fast-marquee';
 
 // -----------------------------------------------------------------
-// 🚀 DYNAMIC IMAGE IMPORT UTILITY (Clean and Scalable)
+// ✅ STATIC IMPORTS — Safe for Deployment
 // -----------------------------------------------------------------
+import Partner1 from '../assets/Global Partner/1.png';
+import Partner2 from '../assets/Global Partner/2.png';
+import Partner3 from '../assets/Global Partner/3.jpg';
+import Partner4 from '../assets/Global Partner/4.jpg';
+import Partner5 from '../assets/Global Partner/5.jpg';
+import Partner6 from '../assets/Global Partner/6.jpg';
+import Partner7 from '../assets/Global Partner/7.jpg';
+import Partner8 from '../assets/Global Partner/8.png';
+import Partner9 from '../assets/Global Partner/9.jpg';
+import Partner10 from '../assets/Global Partner/10.png';
+import Partner11 from '../assets/Global Partner/11.jpg';
+import Partner12 from '../assets/Global Partner/12.jpg';
+import Partner13 from '../assets/Global Partner/13.jpg';
+import Partner14 from '../assets/Global Partner/14.jpg';
+import Partner15 from '../assets/Global Partner/15.png';
+import Partner16 from '../assets/Global Partner/16.png';
+import Partner17 from '../assets/Global Partner/17.jpg';
+import Partner18 from '../assets/Global Partner/18.png';
+import Partner19 from '../assets/Global Partner/19.jpg';
+import Partner20 from '../assets/Global Partner/20.jpg';
+import Partner21 from '../assets/Global Partner/21.jpg';
 
-/**
- * Dynamically imports all partner images from the specified folder.
- * NOTE: This pattern uses features specific to module bundlers (like Webpack's require.context
- * or Vite's import.meta.glob). If you get errors, you may need to adjust the path or 
- * use the 21 explicit import statements from the previous response.
- * * I will use a simple function assuming the images are directly accessible relative to
- * the assets folder, which is the most reliable fallback if dynamic importing fails.
- * This simulates the actual image path that the browser needs.
- */
-const getPartnerImages = () => {
-  const images = [];
-  
-  // List of file names/extensions based on your provided list
-  const fileNames = [
-    '1.png', '2.png', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', 
-    '8.png', '9.jpg', '10.png', '11.jpg', '12.jpg', '13.jpg', 
-    '14.jpg', '15.jpg', '16.png', '17.jpg', '18.png', '19.jpg', '20.jpg', '21.jpg'
-  ];
+// -----------------------------------------------------------------
+// 🧩 PARTNER IMAGES ARRAY
+// -----------------------------------------------------------------
+const partnerImages = [
+  Partner1, Partner2, Partner3, Partner4, Partner5, Partner6, Partner7,
+  Partner8, Partner9, Partner10, Partner11, Partner12, Partner13,
+  Partner14, Partner15, Partner16, Partner17, Partner18, Partner19,
+  Partner20, Partner21,
+];
 
-  // Map the file names to the required source path structure
-  fileNames.forEach((name, index) => {
-    // For a development environment, using the public path (if available) or the
-    // direct relative path to the asset folder is sometimes necessary if explicit
-    // imports or require.context fail.
-    // We construct the path string directly to represent the image's final URL.
-    const partnerPath = `/src/assets/Global Partner/${name}`; // Adjust this path as per your public folder structure
-
-    images.push({
-      // We are deliberately using a string path here, assuming your build tool
-      // correctly handles assets in the 'src/assets' folder or that you move
-      // the 'GlobalPartner' folder to the 'public' folder.
-      src: partnerPath, 
-      alt: `Partner ${index + 1}`
-    });
-  });
-
-  return images;
-};
-
-const partnerImages = getPartnerImages();
-
-
+// -----------------------------------------------------------------
+// 🌍 FOOTER COMPONENT
+// -----------------------------------------------------------------
 export default function Footer() {
   return (
     <footer className="bg-black border-t border-gray-800">
@@ -61,21 +53,17 @@ export default function Footer() {
         </h3>
         
         <Marquee gradient={false} speed={40} pauseOnHover={true}>
-          {partnerImages.map((image, index) => (
+          {partnerImages.map((src, index) => (
             <div key={index} className="flex items-center mx-8 md:mx-12 h-16 md:h-20">
               <img
-                // Corrected to use the full URL path string
-                src={image.src} 
-                alt={image.alt}
-                // Styling ensures logos are visible and centered.
+                src={src}
+                alt={`Partner ${index + 1}`}
                 className="h-full w-auto object-contain filter grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-500 max-w-none"
               />
             </div>
           ))}
         </Marquee>
       </div>
-
-      {/* --- */}
 
       {/* === Footer Main Content === */}
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -93,11 +81,11 @@ export default function Footer() {
                 className="h-20 w-20 object-contain shadow-md hover:scale-105 transition-transform duration-300"
               />
             </Link>
-         <p className="text-sm text-gray-400">
-            Celebrating research, connecting minds,
-            <br />
-            advancing science.
-          </p>
+            <p className="text-sm text-gray-400">
+              Celebrating research, connecting minds,
+              <br />
+              advancing science.
+            </p>
           </div>
 
           {/* === Quick Links === */}
@@ -157,8 +145,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* --- */}
 
         {/* === Bottom Bar === */}
         <div className="mt-10 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
