@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react'; 
+import { motion, useAnimation, useInView, useSpring, useMotionValue, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react'; 
 
 // --- Import Local Images with Actual Filenames ---
 import DrBaker from '../assets/Scientist community photos/1.jpeg';
@@ -314,7 +314,54 @@ export const ImageHeroSection = () => {
 };
 
 // --------------------------------------------------------
-// ABOUT SECTION
+// NEW CountingStat Component (for smooth animation)
+// --------------------------------------------------------
+
+const CountingStat = ({ value, label }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    // Extract the numeric part and the suffix (e.g., '+')
+    const numericValueMatch = value.match(/(\d+)/);
+    const numericPart = numericValueMatch ? parseInt(numericValueMatch[1], 10) : 0;
+    const suffix = value.replace(numericPart.toString(), '');
+
+    // Framer Motion hooks for the animation
+    const count = useMotionValue(0);
+    const roundedValue = useSpring(count, { duration: 1.5, type: "spring", stiffness: 100, damping: 20 });
+    
+    // Use useTransform to handle the rounding and formatting safely (FIX for .to is not a function)
+    const displayValue = useTransform(roundedValue, (r) => {
+         // This function runs every frame, safely formatting the number
+         return `${Math.round(r).toLocaleString()}${suffix}`;
+    });
+
+    useEffect(() => {
+        if (isInView && numericPart > 0) {
+            // Start the motion value animation when in view
+            count.set(numericPart);
+        }
+    }, [isInView, count, numericPart]);
+
+    return (
+        <motion.div
+            ref={ref}
+            variants={itemVariants}
+            className="p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl text-center border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group shadow-lg"
+        >
+            <motion.div
+                className="text-4xl font-extrabold text-cyan-400 group-hover:scale-110 transition-transform duration-300"
+            >
+                {displayValue} 
+            </motion.div>
+            <div className="text-sm text-gray-400 mt-1">{label}</div>
+        </motion.div>
+    );
+};
+
+
+// --------------------------------------------------------
+// UPDATED ABOUT SECTION
 // --------------------------------------------------------
 export const AboutSection = () => (
     <motion.section 
@@ -372,7 +419,7 @@ export const AboutSection = () => (
                 </motion.ul>
             </motion.div>
 
-            {/* Stats Grid */}
+            {/* Stats Grid - Using the new CountingStat component */}
             <motion.div 
                 className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-7xl mx-auto px-6"
                 variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
@@ -383,16 +430,11 @@ export const AboutSection = () => (
                     { value: '1300+', label: 'Published Articles' },
                     { value: '100+', label: 'Global Partners' },
                 ].map((stat) => (
-                    <motion.div
+                    <CountingStat
                         key={stat.label}
-                        variants={itemVariants}
-                        className="p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl text-center border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group shadow-lg"
-                    >
-                        <div className="text-4xl font-extrabold text-cyan-400 group-hover:scale-110 transition-transform duration-300">
-                            {stat.value}
-                        </div>
-                        <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-                    </motion.div>
+                        value={stat.value}
+                        label={stat.label}
+                    />
                 ))}
             </motion.div>
 

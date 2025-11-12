@@ -109,17 +109,17 @@ const mockJournals = [
 // --- Mock Data: Book Entries (11 total) ---
 const mockBooks = [
   // Using imported book image variables
-  { id: 1, title: "Basics of Microbiology Students learning Guide", year: 2021, publisher: "Academic Press", img: bookImg1 },
-  { id: 2, title: "Bioelectricity Microbial fuel cell", year: 2022, publisher: "Wiley", img: bookImg2 },
-  { id: 3, title: "Book Chapter 1: Nanotechnology in Biology", year: 2020, publisher: "Springer", img: bookImg3 },
-  { id: 4, title: "Book chapter 2: Advanced Topics", year: 2021, publisher: "Elsevier", img: bookImg4 },
-  { id: 5, title: "Book chapter 3: Bioremediation", year: 2022, publisher: "Taylor & Francis", img: bookImg5 },
-  { id: 6, title: "Book chapter 4: Industrial Applications", year: 2023, publisher: "CRC Press", img: bookImg6 },
-  { id: 7, title: "COVID 19 2020: A Microbial Perspective", year: 2020, publisher: "Pandemic Insights", img: bookImg7 },
-  { id: 8, title: "Meet the microbes: An Introduction", year: 2019, publisher: "Science Ed.", img: bookImg8 }, 
-  { id: 9, title: "Microbial Nanotechnology and its applications", year: 2023, publisher: "CRC Press", img: bookImg9 }, 
-  { id: 10, title: "Vaccines and its importance in public health", year: 2022, publisher: "Health Today", img: bookImg10 },
-  { id: 11, title: "Placeholder Title for Book 11", year: 2024, publisher: "New Publisher", img: bookImg11 } 
+  { id: 1, title: "BASIC ECOLOGY", year: 2021, publisher: "Academic Press", img: bookImg1 },
+  { id: 2, title: "THE MOUNTAIN LIFE", year: 2022, publisher: "Wiley", img: bookImg2 },
+  { id: 3, title: "FLORISTIC ANALYSIS OF PLANT SPECIES DIVERSITY IN ALLEDEGHI WILDLIFE RESERVE, AFAR REGION", year: 2020, publisher: "Springer", img: bookImg3 },
+  { id: 4, title: "BEGIN TO KNOW AGRICULTURE ", year: 2021, publisher: "Elsevier", img: bookImg4 },
+  { id: 5, title: "ADVANCING AGRICULTURE", year: 2022, publisher: "Taylor & Francis", img: bookImg5 },
+  { id: 6, title: "INFLUENCE OF SOCIAL ENTREPRENEURSHIP IN DEVELOPING COUNTRIES", year: 2023, publisher: "CRC Press", img: bookImg6 },
+  { id: 7, title: "BREAKING THE OATH AT TURNER CREEK", year: 2020, publisher: "Pandemic Insights", img: bookImg7 },
+  { id: 8, title: "ORGANIC FARMING ", year: 2019, publisher: "Science Ed.", img: bookImg8 }, 
+  { id: 9, title: "THE WAR OF PANDEMIC WORLD LOCKDOWN LIFE ", year: 2023, publisher: "CRC Press", img: bookImg9 }, 
+  { id: 10, title: "ELECTRONIC INFORMATION RESOURCES PROVISION IN FEDERAL UNIVERSITY LIBRARIES IN NIGERIA", year: 2022, publisher: "Health Today", img: bookImg10 },
+  { id: 11, title: "ROLE OF NANOTECHNOLOGY IN MODERN SOCIETY", year: 2024, publisher: "New Publisher", img: bookImg11 } 
 ];
 
 // Helper icon for PDF link 
@@ -165,7 +165,8 @@ const PublicationList = ({ title, items, isBook, duration = '120s' }) => {
                   // The img property now holds the imported module, which is the correct source URL
                   src={item.img} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" // Enhanced zoom
+                  // *** CHANGE HERE: object-cover -> object-contain to make the whole image visible ***
+                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-110 p-2" // Added p-2 for a slight buffer
                   // Fallback for image loading error
                   onError={(e) => {
                     e.target.onerror = null; 
