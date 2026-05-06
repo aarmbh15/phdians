@@ -59,7 +59,11 @@ import authorImg53 from '../assets/Author Gallary/53.jpeg';
 import authorImg54 from '../assets/Author Gallary/54.jpeg';
 import authorImg55 from '../assets/Author Gallary/55.jpeg';
 import authorImg56 from '../assets/Author Gallary/56.jpeg';
-
+import NarendraReddyBurramukku from '../assets/Author Gallary/NarendraReddyBurramukku.jpeg';
+import SravikaKoukuntla from '../assets/Author Gallary/SravikaKoukuntla.jpeg';
+import VinayKumarReddyVangoor from '../assets/Author Gallary/VinayKumarReddyVangoor.jpeg';
+import VinodKumarJangala from '../assets/Author Gallary/VinodKumarJangala.jpeg';
+import NaveenReddyBurramukku from '../assets/Author Gallary/NaveenReddyBurramukku.jpeg';
 
 // --- Data for Author Cards (Updated to use 56 profiles) ---
 const authorProfiles = [
@@ -119,6 +123,11 @@ const authorProfiles = [
   { src: authorImg54, name: 'Mr. Atish Roy' },
   { src: authorImg55, name: 'Dr. Elizaveta Mukhanova' },
   { src: authorImg56, name: 'Dr. Nutan Shukla' },
+{ src: NarendraReddyBurramukku, name: 'NarendraReddyBurramukku' },
+  { src: SravikaKoukuntla, name: 'SravikaKoukuntla' },
+  { src: VinayKumarReddyVangoor, name: 'VinayKumarReddyVangoor' },
+  { src: VinodKumarJangala, name: 'VinodKumarJangala' },
+  { src: NaveenReddyBurramukku, name: 'NaveenReddyBurramukku' },
 ];
 
 // --- Author Card Component (Title removed) ---

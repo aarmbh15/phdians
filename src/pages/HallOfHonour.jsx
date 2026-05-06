@@ -25,8 +25,7 @@ import nikola_tesla from "../assets/Legend/tesl.jpeg";
 import tessy_thomas from "../assets/Legend/tessy.avif";
 import vikram_sarabhai from "../assets/Legend/vikram.png"; 
 
-// --- CERTIFICATE IMAGE IMPORTS (New Imports) ---
-// Assuming your Certificates folder is accessible via "../assets/Certificates/"
+// --- CERTIFICATE IMAGE IMPORTS ---
 import cert1 from "../assets/Certificates/1.jpeg";
 import cert2 from "../assets/Certificates/2.jpeg";
 import cert3 from "../assets/Certificates/3.jpeg";
@@ -49,32 +48,132 @@ import cert19 from "../assets/Certificates/19.jpeg";
 import cert20 from "../assets/Certificates/20.jpeg";
 import cert21 from "../assets/Certificates/21.jpeg";
 
+// --- ELITE FELLOW MEMBERSHIP IMAGE IMPORTS ---
+import elite_aijaz from "../assets/Certificates/AijazPhDIAN.png";
+import elite_alekha from "../assets/Certificates/AlekhaPhDIAN.png";
+import elite_amita from "../assets/Certificates/AmitaPhDIAN.png";
+import elite_devendra from "../assets/Certificates/DevendraPhDIAN.png";
+import elite_gourav from "../assets/Certificates/GouravPhDIAN.png";
+import elite_ishika from "../assets/Certificates/IshikaPhDIAN.png";
+import elite_kanchana from "../assets/Certificates/KanchanaPhDIAN.png";
+import elite_krishna from "../assets/Certificates/KrishnaPhDIAN.png";
+import elite_narendra from "../assets/Certificates/NarendraPhDIAN.png";
+import elite_naveen from "../assets/Certificates/NaveenPhDIAN.png";
+import elite_ritvik from "../assets/Certificates/RitvikPhDIAN.png";
+import elite_sachin from "../assets/Certificates/SachinShettyPhDIAN.png";
+import elite_saritha from "../assets/Certificates/SarithaPhDIAN.png";
+import elite_shah from "../assets/Certificates/ShahPhDIAN.png";
+import elite_sravika from "../assets/Certificates/SravikaPhDIAN.png";
+import elite_sunil from "../assets/Certificates/SunilPhDIAN.png";
+import elite_suresh from "../assets/Certificates/SureshPhDIAN.png";
+import elite_vinay from "../assets/Certificates/VinayPhDIAN.png";
+import elite_vinod from "../assets/Certificates/VinodPhDIAN.png";
 
-// --- Component Data Arrays (Legends section is unchanged) ---
+
+// --- Component Data Arrays ---
 const legends = [
-  { person: "Dr. A.P.J. Abdul Kalam", title: "“Missile Man of India”; former President; visionary behind India’s space and defence technology revolution", image: apj_kalam },
-  { person: "Dr. C.V. Raman", title: "Nobel Laureate in Physics (1930) for discovering the Raman Effect", image: cv_raman },
-  { person: "Dr. Homi J. Bhabha", title: "Architect of India’s nuclear programme and founder of BARC and TIFR", image: homi_bhabha },
-  { person: "Dr. Vikram A. Sarabhai", title: "Father of the Indian Space Programme; established ISRO and promoted space applications for development", image: vikram_sarabhai },
-  { person: "Dr. S. Chandrasekhar", title: "Nobel Laureate in Physics (1983); known for the Chandrasekhar Limit in stellar evolution", image: s_chandrasekhar },
-  { person: "Dr. M.S. Swaminathan", title: "Father of the Green Revolution in India; champion of agricultural sustainability and food security", image: ms_swaminathan },
-  { person: "Dr. K. Kasturirangan", title: "Space scientist; led ISRO’s scientific missions and national education policy reforms", image: k_kasturirangan },
-  { person: "Dr. R. A. Mashelkar", title: "Chemical engineer; global leader in innovation policy, intellectual property, and sustainable technologies", image: ra_mashelkar }, 
-  { person: "Dr. Tessy Thomas", title: "“Missile Woman of India”; key DRDO scientist behind Agni missile systems", image: tessy_thomas },
-  { person: "Dr. Gagandeep Kang", title: "Leading microbiologist; expert in infectious diseases and vaccine research", image: gagandeep_kang },
-  { person: "Albert Einstein", title: "Theoretical physicist; father of relativity; symbol of intellectual brilliance and humanism", image: albert_einstein },
-  { person: "Marie Curie", title: "Pioneer in radioactivity; first person to win two Nobel Prizes in Physics and Chemistry", image: marie_curie },
-  { person: "Stephen Hawking", title: "Theoretical physicist; advanced our understanding of black holes and cosmology despite physical adversity", image: stephen_hawking },
-  { person: "Isaac Newton", title: "Mathematician and physicist; formulated laws of motion and universal gravitation", image: isaac_newton },
-  { person: "Charles Darwin", title: "Naturalist; proposed the theory of evolution by natural selection", image: charles_darwin },
-  { person: "Nikola Tesla", title: "Inventor and engineer; laid foundations for AC electricity, wireless energy, and modern electrical systems", image: nikola_tesla },
-  { person: "Rosalind Franklin", title: "Molecular biophysicist; provided key X-ray data for discovery of DNA structure", image: rosalind_franklin },
-  { person: "Carl Sagan", title: "Astrophysicist and communicator; popularized science and cosmic exploration", image: carl_sagan },
-  { person: "Jane Goodall", title: "Primatologist; transformed our understanding of animal behaviour and conservation", image: jane_goodall },
-  { person: "Elon Musk", title: "Entrepreneur-engineer; leading innovations in electric vehicles, space technology, and sustainable energy", image: elon_musk },
+  { 
+    person: "Dr. A.P.J. Abdul Kalam", 
+    title: '"Missile Man of India"; former President; visionary behind India\'s space and defence technology revolution', 
+    image: apj_kalam 
+  },
+  { 
+    person: "Dr. C.V. Raman", 
+    title: "Nobel Laureate in Physics (1930) for discovering the Raman Effect", 
+    image: cv_raman 
+  },
+  { 
+    person: "Dr. Homi J. Bhabha", 
+    title: "Architect of India's nuclear programme and founder of BARC and TIFR", 
+    image: homi_bhabha 
+  },
+  { 
+    person: "Dr. Vikram A. Sarabhai", 
+    title: "Father of the Indian Space Programme; established ISRO and promoted space applications for development", 
+    image: vikram_sarabhai 
+  },
+  { 
+    person: "Dr. S. Chandrasekhar", 
+    title: "Nobel Laureate in Physics (1983); known for the Chandrasekhar Limit in stellar evolution", 
+    image: s_chandrasekhar 
+  },
+  { 
+    person: "Dr. M.S. Swaminathan", 
+    title: "Father of the Green Revolution in India; champion of agricultural sustainability and food security", 
+    image: ms_swaminathan 
+  },
+  { 
+    person: "Dr. K. Kasturirangan", 
+    title: "Space scientist; led ISRO's scientific missions and national education policy reforms", 
+    image: k_kasturirangan 
+  },
+  { 
+    person: "Dr. R. A. Mashelkar", 
+    title: "Chemical engineer; global leader in innovation policy, intellectual property, and sustainable technologies", 
+    image: ra_mashelkar 
+  },
+  { 
+    person: "Dr. Tessy Thomas", 
+    title: '"Missile Woman of India"; key DRDO scientist behind Agni missile systems', 
+    image: tessy_thomas 
+  },
+  { 
+    person: "Dr. Gagandeep Kang", 
+    title: "Leading microbiologist; expert in infectious diseases and vaccine research", 
+    image: gagandeep_kang 
+  },
+  { 
+    person: "Albert Einstein", 
+    title: "Theoretical physicist; father of relativity; symbol of intellectual brilliance and humanism", 
+    image: albert_einstein 
+  },
+  { 
+    person: "Marie Curie", 
+    title: "Pioneer in radioactivity; first person to win two Nobel Prizes in Physics and Chemistry", 
+    image: marie_curie 
+  },
+  { 
+    person: "Stephen Hawking", 
+    title: "Theoretical physicist; advanced our understanding of black holes and cosmology despite physical adversity", 
+    image: stephen_hawking 
+  },
+  { 
+    person: "Isaac Newton", 
+    title: "Mathematician and physicist; formulated laws of motion and universal gravitation", 
+    image: isaac_newton 
+  },
+  { 
+    person: "Charles Darwin", 
+    title: "Naturalist; proposed the theory of evolution by natural selection", 
+    image: charles_darwin 
+  },
+  { 
+    person: "Nikola Tesla", 
+    title: "Inventor and engineer; laid foundations for AC electricity, wireless energy, and modern electrical systems", 
+    image: nikola_tesla 
+  },
+  { 
+    person: "Rosalind Franklin", 
+    title: "Molecular biophysicist; provided key X-ray data for discovery of DNA structure", 
+    image: rosalind_franklin 
+  },
+  { 
+    person: "Carl Sagan", 
+    title: "Astrophysicist and communicator; popularized science and cosmic exploration", 
+    image: carl_sagan 
+  },
+  { 
+    person: "Jane Goodall", 
+    title: "Primatologist; transformed our understanding of animal behaviour and conservation", 
+    image: jane_goodall 
+  },
+  { 
+    person: "Elon Musk", 
+    title: "Entrepreneur-engineer; leading innovations in electric vehicles, space technology, and sustainable energy", 
+    image: elon_musk 
+  },
 ];
 
-// --- New Certificate Data Array ---
 const certificates = [
   { id: 1, image: cert1, alt: "Certificate 1" },
   { id: 2, image: cert2, alt: "Certificate 2" },
@@ -99,16 +198,35 @@ const certificates = [
   { id: 21, image: cert21, alt: "Certificate 21" },
 ];
 
-// The MemberImage helper component and members array are now unnecessary 
-// as the "Senior & Fellow Members" section is removed.
+// --- New Elite Fellow Membership Data Array ---
+const eliteFellowMembers = [
+  { id: 1, image: elite_aijaz, alt: "Aijaz PhDIAN", name: "Aijaz" },
+  { id: 2, image: elite_alekha, alt: "Alekha PhDIAN", name: "Alekha" },
+  { id: 3, image: elite_amita, alt: "Amita PhDIAN", name: "Amita" },
+  { id: 4, image: elite_devendra, alt: "Devendra K Tyagi PhDIAN", name: "Devendra K Tyagi" },
+  { id: 5, image: elite_gourav, alt: "Gourav PhDIAN", name: "Gourav" },
+  { id: 6, image: elite_ishika, alt: "Ishika PhDIAN", name: "Ishika" },
+  { id: 7, image: elite_kanchana, alt: "Kanchana PhDIAN", name: "Kanchana" },
+  { id: 9, image: elite_krishna, alt: "Krishna Kumar Maling PhDIAN", name: "Krishna Kumar Maling" },
+  { id: 10, image: elite_narendra, alt: "Narendra Redy Kommatha PhDIAN", name: "Narendra Redy Kommatha" },
+  { id: 11, image: elite_naveen, alt: "Naveen Redy Kommatha PhDIAN", name: "Naveen Redy Kommatha" },
+  { id: 12, image: elite_ritvik, alt: "Ritvik Pralhage PhDIAN", name: "Ritvik Pralhage" },
+  { id: 13, image: elite_sachin, alt: "Sachin Shetty PhDIAN", name: "Sachin Shetty" },
+  { id: 14, image: elite_saritha, alt: "Saritha PhDIAN", name: "Saritha" },
+  { id: 15, image: elite_shah, alt: "Shah PhDIAN", name: "Shah" },
+  { id: 16, image: elite_sravika, alt: "Sravika PhDIAN", name: "Sravika" },
+  { id: 17, image: elite_sunil, alt: "Sunil Kumar PhDIAN", name: "Sunil Kumar" },
+  { id: 18, image: elite_suresh, alt: "Suresh R PhDIAN", name: "Suresh R" },
+  { id: 19, image: elite_vinay, alt: "Vinay Kumar Redy Gungur PhDIAN", name: "Vinay Kumar Redy Gungur" },
+  { id: 20, image: elite_vinod, alt: "Vinod Kumar Jangale PhDIAN", name: "Vinod Kumar Jangale" },
+];
 
 // ✅ Component
 export default function HallOfHonour() {
   
-  // Removed MemberImage and its usage as the Members section is gone.
-  
   const legendsCount = legends.length;
-  const initialDelay = 0.6 + legendsCount * 0.05; // Calculate starting delay for Certificates section
+  const initialDelay = 0.6 + legendsCount * 0.05;
+  const eliteDelay = initialDelay + 0.1 + certificates.length * 0.03 + 0.3;
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 min-h-screen overflow-hidden">
@@ -135,7 +253,7 @@ export default function HallOfHonour() {
       
       <div className="max-w-7xl mx-auto">
         
-        {/* --- Header Section --- (Added Animation) */}
+        {/* --- Header Section --- */}
         <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-white animate-header-fade">
           Hall of Honour
         </h1>
@@ -143,32 +261,27 @@ export default function HallOfHonour() {
           Celebrating those who changed the world through science and innovation.
         </p>
         
-        {/* --- Legends Section --- (Unchanged) */}
+        {/* --- Legends Section --- */}
         <h2 className="text-4xl font-bold text-white mb-10 border-b-2 border-cyan-500/30 pb-2 animate-header-fade" style={{ animationDelay: '0.5s' }}>
           The Legends
         </h2>
-        {/* Responsive Check: The grid layout (1, 2, 3, 4 columns) is inherently responsive. */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20">
           {legends.map((p, index) => (
             <div
               key={p.person}
               className="p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:border-cyan-500 transition-all duration-300 group text-center border-2 border-gray-700 hover:scale-[1.03] transform animate-card-slide"
-              style={{ animationDelay: `${0.6 + index * 0.05}s` }} // Staggered delay
+              style={{ animationDelay: `${0.6 + index * 0.05}s` }}
             >
-              {/* Image Container for Legends - Enhanced Hover */}
               <div className="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden border-4 border-cyan-500/50 flex items-center justify-center shadow-inner shadow-cyan-300/30 group-hover:border-cyan-300 transition-all duration-300">
-                
                 {p.image === PLACEHOLDER_IMAGE ? (
-                  // Placeholder content for Dr. R. A. Mashelkar (or any other missing Legend image)
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-500 transition duration-500 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M19 21v-2a4 4 4 0 0 0-4-4H9a4 4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                   </svg>
                 ) : (
-                  // Actual Image content
                   <img 
                     src={p.image} 
                     alt={p.person} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" // Image zoom on hover
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => { 
                       e.target.onerror = null; 
                       e.target.style.display = 'none'; 
@@ -177,23 +290,20 @@ export default function HallOfHonour() {
                   />
                 )}
               </div>
-              
               <h4 className="text-xl font-bold text-white group-hover:text-cyan-300 transition line-clamp-2">{p.person}</h4>
               <p className="text-sm text-gray-400 mt-1 line-clamp-3" title={p.title}>{p.title}</p>
             </div>
           ))}
         </div>
 
-        {/* --- Certificates Section (New) --- */}
+        {/* --- Certificates Section --- */}
         <h2 className="text-4xl font-bold text-white mb-10 border-b-2 border-cyan-500/30 pb-2 animate-header-fade" style={{ animationDelay: `${initialDelay}s` }}>
           Certificates of Achievement
         </h2>
-        {/* Responsive Grid: 2 columns on small, 3 on medium, 4 on large, 5 on extra-large */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-6 mb-20">
           {certificates.map((cert, index) => (
             <div
               key={cert.id}
-              // Card styling is simplified for images, focusing on the container and hover effect
               className="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group border border-gray-700 hover:scale-[1.05] transform animate-card-slide"
               style={{ animationDelay: `${initialDelay + 0.1 + index * 0.03}s` }} 
             >
@@ -201,7 +311,6 @@ export default function HallOfHonour() {
                 <img 
                   src={cert.image} 
                   alt={cert.alt} 
-                  // Image is set to cover the container while maintaining aspect ratio
                   className="w-full h-full object-cover aspect-[4/3] group-hover:opacity-80 transition-opacity duration-300"
                   onError={(e) => { 
                     e.target.onerror = null; 
@@ -213,6 +322,40 @@ export default function HallOfHonour() {
             </div>
           ))}
         </div>
+
+        {/* --- PhDIANS ELITE FELLOW MEMBERSHIP Section (New) --- */}
+        <h2 className="text-4xl font-bold text-white mb-4 border-b-2 border-cyan-500/30 pb-2 animate-header-fade" style={{ animationDelay: `${eliteDelay}s` }}>
+          PhDIANS ELITE FELLOW MEMBERSHIP
+        </h2>
+        <p className="text-gray-400 mb-10 text-base animate-header-fade" style={{ animationDelay: `${eliteDelay + 0.1}s` }}>
+          Recognising our distinguished Elite Fellow Members for their exceptional contributions.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-6">
+          {eliteFellowMembers.map((member, index) => (
+            <div
+              key={member.id}
+              className="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group border border-gray-700 hover:scale-[1.05] transform animate-card-slide"
+              style={{ animationDelay: `${eliteDelay + 0.2 + index * 0.03}s` }}
+            >
+              <a href={member.image} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <img 
+                  src={member.image} 
+                  alt={member.alt} 
+                  className="w-full h-full object-cover aspect-[4/3] group-hover:opacity-80 transition-opacity duration-300"
+                  onError={(e) => { 
+                    e.target.onerror = null; 
+                    e.target.style.display = 'none'; 
+                    e.target.parentElement.innerHTML = '<div class="p-4 text-center text-gray-500">Image Load Error</div>';
+                  }}
+                />
+              </a>
+              <div className="px-3 py-2 bg-gray-800">
+                <p className="text-xs text-center text-gray-400 truncate">{member.name}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
