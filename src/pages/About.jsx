@@ -234,26 +234,45 @@ export default function About() {
           </p>
         </header>
 
-        {/* Authors Section - Staggered Animation */}
-        <div className="space-y-8 sm:space-y-12 animate-section-fade" style={{ animationDelay: '0.6s' }}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center">
-            Featured <span className="text-cyan-400">Authors & Scholars</span>
-          </h2>
-          
-          {/* SCROLLING CONTAINER */}
-          <div className="flex overflow-x-scroll pb-4 -mx-4 sm:-mx-6 lg:-mx-8 cursor-grab scrollbar-thin scrollbar-thumb-cyan-500/50 hover:scrollbar-thumb-cyan-300 scrollbar-track-gray-800 transition duration-300">
-            {authorProfiles.map((author, index) => (
-              // Staggered slide-in effect
-              <AuthorCard 
-                key={index} 
-                src={author.src} 
-                name={author.name} 
-                delay={20 * index + 600} // Small stagger for a ripple effect
-              />
-            ))}
-          </div>
+    {/* Authors Section - Auto Horizontal Scroll */}
+<div
+  className="space-y-8 sm:space-y-12 animate-section-fade"
+  style={{ animationDelay: "0.6s" }}
+>
+  <h2 className="text-3xl sm:text-4xl font-bold text-white text-center">
+    Featured <span className="text-cyan-400">Authors & Scholars</span>
+  </h2>
+
+  <div className="relative overflow-hidden w-full">
+    
+    {/* Left Gradient */}
+    <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none" />
+
+    {/* Right Gradient */}
+    <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none" />
+
+    {/* Scrolling Cards */}
+    <div
+      className="flex w-max gap-6 hover:[animation-play-state:paused]"
+      style={{
+        animation: "scroll 150s linear infinite",
+      }}
+    >
+      {[...authorProfiles, ...authorProfiles].map((author, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0"
+        >
+          <AuthorCard
+            src={author.src}
+            name={author.name}
+            delay={20 * index + 600}
+          />
         </div>
-        
+      ))}
+    </div>
+  </div>
+</div>
         {/* --- Horizontal Rule for separation --- */}
         <hr className="border-gray-700 max-w-4xl mx-auto transition duration-1000 transform hover:scale-x-105" />
 
